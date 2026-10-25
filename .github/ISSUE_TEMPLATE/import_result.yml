@@ -1,0 +1,91 @@
+name: Import result looks wrong
+description: The imported Widget Blueprint differs visually or structurally from the design.
+title: "[Import]: "
+labels: ["import", "needs-bundle"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For layout, size, colour, text or texture mismatches. Please attach a support bundle (Tools > Handoff for UMG > Create Support Bundle...) and a screenshot.
+  - type: input
+    id: plugin_version
+    attributes:
+      label: Plugin version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: engine_version
+    attributes:
+      label: Engine version
+      options:
+        - "5.8"
+        - "5.7"
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Import mode
+      options:
+        - Plain UMG
+        - CommonUI mode
+    validations:
+      required: true
+  - type: textarea
+    id: what_differs
+    attributes:
+      label: What differs from the design?
+      description: Which layer or frame, what you see in Unreal, what the design shows.
+    validations:
+      required: true
+  - type: textarea
+    id: render
+    attributes:
+      label: Render or screenshot
+      description: Drag the Figma frame and the Unreal result (Preview window or `-Render` PNG) here, at the same resolution if possible.
+    validations:
+      required: true
+  - type: textarea
+    id: explain
+    attributes:
+      label: "-Explain output"
+      description: "Output of `UnrealEditor-Cmd.exe <Project>.uproject -run=HandoffImport -Package=<zip> -Plan -Explain -Report=<file>`. See Docs/Automation.md."
+      render: text
+  - type: textarea
+    id: messages
+    attributes:
+      label: Messages tab
+      description: Paste the warnings and info from the Messages tab, if any (rasterised layers, fonts, approximations).
+      render: text
+  - type: dropdown
+    id: can_share
+    attributes:
+      label: Can you share the .handoff.zip?
+      description: A cut-down frame that still reproduces the problem is ideal. Never share designs you are not allowed to share.
+      options:
+        - "Yes, attached to this issue"
+        - "Yes, privately on request"
+        - "A cut-down copy that reproduces it"
+        - "No"
+    validations:
+      required: true
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Attachments
+      description: Support bundle zip and anything else.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched the existing issues and the Troubleshooting page.
+          required: true
+        - label: I ran Tools > Handoff for UMG > Check Setup...
+          required: true
+        - label: I attached the support bundle or explained why not.
+          required: true
+        - label: I removed confidential designs from anything I attached.
+          required: true

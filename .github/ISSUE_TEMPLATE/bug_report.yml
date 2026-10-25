@@ -1,0 +1,105 @@
+name: Bug report
+description: Something in Handoff for UMG does not work as documented.
+title: "[Bug]: "
+labels: ["bug", "needs-bundle"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Run **Tools > Handoff for UMG > Check Setup...**, then **Create Support Bundle...** and attach the zip below. The bundle contains `ISSUE_BODY.md`, pre-filled in the same order as this form.
+        Nothing is uploaded automatically and your Figma token is never included.
+  - type: input
+    id: plugin_version
+    attributes:
+      label: Plugin version
+      description: Shown in Edit > Plugins, for example 1.0.0.
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: engine_version
+    attributes:
+      label: Engine version
+      options:
+        - "5.8"
+        - "5.7"
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows
+        - macOS
+        - Linux
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Import / layout
+        - Re-import / merge / re-link
+        - Fonts and styles
+        - CommonUI
+        - Preview / render
+        - REST fetch
+        - Python / commandlet / CI
+        - Figma exporter
+        - Installation / setup
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: health_summary
+    attributes:
+      label: Health check summary
+      description: Paste the "Health check summary" section of ISSUE_BODY.md from the support bundle, or the output of the `Handoff.Health` console command.
+      render: markdown
+    validations:
+      required: true
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: What did you see? Include exact error messages.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps, starting from a fresh import if possible.
+      placeholder: |
+        1. Import ...
+        2. Press Plan ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Attachments
+      description: Drag the support bundle zip here (Saved/HandoffSupport/HandoffSupport_<timestamp>.zip). You can also add the package, a screenshot or the `-Explain` output. Remove anything confidential first.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched the existing issues and the Troubleshooting page.
+          required: true
+        - label: I ran Tools > Handoff for UMG > Check Setup...
+          required: true
+        - label: I attached the support bundle, or explained above why I cannot.
+          required: true
+        - label: I removed confidential designs and names from anything I attached.
+          required: true

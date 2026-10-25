@@ -1,0 +1,88 @@
+name: Setup health check problem
+description: A health check shows Warning or Fail and you cannot fix it, or the check looks wrong.
+title: "[Setup]: "
+labels: ["setup", "needs-bundle"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        See the [health check reference](https://github.com/Hollow-Soul-Studios/Handoff-for-UMG/blob/main/docs/support/health-checks.md) for what each check means and the usual fix.
+  - type: input
+    id: plugin_version
+    attributes:
+      label: Plugin version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: engine_version
+    attributes:
+      label: Engine version
+      options:
+        - "5.8"
+        - "5.7"
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: check
+    attributes:
+      label: Which check?
+      options:
+        - HC01 Plugin modules
+        - HC02 Engine version
+        - HC03 CommonUI
+        - HC04 Enhanced Input support (CommonUI)
+        - HC05 Input action folder
+        - HC06 Default destination
+        - HC07 Font mappings
+        - HC08 Font search folders
+        - HC09 Import manifests
+        - HC10 Write access
+        - HC11 Backups
+        - HC12 Source control
+        - HC13 Python Editor Script Plugin
+        - HC14 Figma REST token
+        - HC15 Rendering (preview / -Render)
+        - HC16 Handoff errors this session
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status shown
+      options:
+        - Warning
+        - Fail
+        - Pass or Info, but it should not be
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: Paste the output of the check (Check Setup window, `Handoff.Health`, or `-run=HandoffImport -Health`). Do not include your Figma token.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: What did you try?
+      description: The fix suggested by the check, and what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Attachments
+      description: Support bundle zip.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched the existing issues and read the health check reference.
+          required: true
+        - label: I attached the support bundle or explained why not.
+          required: true

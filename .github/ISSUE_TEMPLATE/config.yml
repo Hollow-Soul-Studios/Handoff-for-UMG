@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/Hollow-Soul-Studios/Handoff-for-UMG/blob/main/docs/index.md
+    about: Quick start, feature mapping, re-import rules, troubleshooting and health checks.

@@ -1,0 +1,94 @@
+name: Re-import problem
+description: A lost edit, an unexpected conflict, or a re-link that did not work.
+title: "[Re-import]: "
+labels: ["reimport", "needs-bundle"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If an edit was lost, run **Restore last import** first to get your files back, then report here. Please include the plan report and a support bundle (with manifests only if you are comfortable sharing layer names).
+  - type: input
+    id: plugin_version
+    attributes:
+      label: Plugin version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: engine_version
+    attributes:
+      label: Engine version
+      options:
+        - "5.8"
+        - "5.7"
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What went wrong?
+      options:
+        - An edit I made in Unreal was overwritten
+        - An unexpected conflict
+        - A conflict that keeps coming back
+        - Re-link did not match a frame or layer
+        - A widget was removed or recreated
+        - A locked row I did not expect
+        - Re-importing the unchanged package shows changes
+        - Restore last import did not work
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: Which asset, widget and property. What did you change in Unreal and in the design between imports?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: plan_report
+    attributes:
+      label: Plan report
+      description: "Copy the report from the Changes tab, or paste the output of `-Plan -Report=<file>` (add `-Explain` if values differ unexpectedly)."
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: manifest_summary
+    attributes:
+      label: Manifest summary
+      description: Paste manifests_summary.json from the support bundle. It contains no layer names. Say whether the manifest was committed or restored from source control.
+      render: json
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The sequence of imports and edits (for example v1 import, edit font size in Unreal, v2 import).
+    validations:
+      required: true
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Attachments
+      description: Support bundle zip, and the two packages if you can share them.
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched the existing issues and read the Re-import rules.
+          required: true
+        - label: I ran Tools > Handoff for UMG > Check Setup...
+          required: true
+        - label: I attached the support bundle or explained why not.
+          required: true
+        - label: I removed confidential designs from anything I attached.
+          required: true
