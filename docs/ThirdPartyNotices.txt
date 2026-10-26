@@ -43,7 +43,7 @@ Extras/FigmaExporter/THIRD_PARTY.md. Summary:
 
   Shipped inside the exporter (Extras/FigmaExporter/dist/code.js):
     fflate 0.8.3 - MIT License - Copyright (c) 2026 Arjun Barrett (https://github.com/101arrowz/fflate).
-    The full license text is in Extras/FigmaExporter/licenses/fflate_LICENSE.txt.
+    The full license text is embedded at the top of Extras/FigmaExporter/dist/code.js.
 
   Build and type-check tooling only (not distributed):
     @figma/plugin-typings 1.142.0 - MIT License - Copyright (c) 2021 Figma, Inc.
